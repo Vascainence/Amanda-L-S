@@ -153,9 +153,45 @@
     });
 
     window.onload = typeWriter;
-</script>
+<script>
+    const h1 = document.querySelector('h1');
+    const botoesDiv = document.getElementById('container-botoes');
+    const simButton = document.getElementById('sim');
+    const naoButton = document.getElementById('nao');
+
+    const texto = "AINDA PODEMOS CONVERSAR?";
+    let index = 0;
+
+    // Efeito de digitação (Máquina de escrever)
+    function typeWriter() {
+      if (index < texto.length) {
+        h1.innerHTML += texto.charAt(index);
+        index++;
+        setTimeout(typeWriter, 120);
+      } else {
+        botoesDiv.style.opacity = '1';
+      }
+    }
+
+    // Botão "Não" foge quando o mouse passa por cima
+    naoButton.addEventListener('mouseover', function() {
+      const maxX = window.innerWidth - this.offsetWidth;
+      const maxY = window.innerHeight - this.offsetHeight;
+      this.style.position = 'absolute';
+      this.style.left = Math.random() * maxX + 'px';
+      this.style.top = Math.random() * maxY + 'px';
+    });
+
+    // Botão "Sim" direto para a próxima página (Sem "aguarde")
+    simButton.addEventListener('click', () => {
+      window.location.href = 'amanda-l.html';
+    });
+
+    window.onload = typeWriter;
+</script></script>
 </body><audio id="musica">
   <source src="musica.mp3" type="audio/mpeg">
 </audio>
 </html>
+
 
