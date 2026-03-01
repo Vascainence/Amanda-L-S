@@ -22,20 +22,20 @@
 
         .container {
             padding: 20px;
-            position: relative;
-            z-index: 10; /* Garante que o texto apareça sobre tudo */
+            z-index: 10;
+            max-width: 90vw;
         }
 
         h1 {
             font-family: 'Dancing Script', cursive;
             color: #ff0080;
-            font-size: clamp(35px, 9vw, 80px);
-            margin: 0 0 10px 0;
+            font-size: clamp(35px, 8vw, 75px);
+            margin: 0;
         }
 
         .coracao-grande {
-            font-size: 80px;
-            margin: 15px 0;
+            font-size: clamp(60px, 15vw, 85px);
+            margin: 10px 0;
             display: inline-block;
             animation: bater 0.8s infinite alternate;
         }
@@ -43,23 +43,34 @@
         .frase-impacto {
             font-size: clamp(26px, 6vw, 42px);
             color: #ffcc00;
-            margin: 20px 0;
+            margin: 15px 0;
             font-style: italic;
-            max-width: 90vw;
         }
 
         .btn-whatsapp {
             display: inline-block;
-            margin-top: 25px;
-            padding: 15px 35px;
+            margin-top: 20px;
+            padding: 15px 30px;
             background-color: #25d366;
             color: white;
             text-decoration: none;
             border-radius: 50px;
             font-family: sans-serif;
-            font-size: 18px;
+            font-size: clamp(16px, 4vw, 20px);
             font-weight: bold;
             box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            transition: transform 0.3s;
+        }
+
+        .btn-whatsapp:hover { transform: scale(1.05); }
+
+        /* Estilo da nova frase final */
+        .frase-reflexao {
+            font-size: clamp(20px, 5vw, 28px);
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 25px;
+            line-height: 1.2;
+            font-style: italic;
         }
 
         @keyframes bater {
@@ -67,7 +78,6 @@
             to { transform: scale(1.15); }
         }
 
-        /* Corações flutuantes */
         .heart {
             position: absolute;
             color: #ff0080;
@@ -78,9 +88,7 @@
         }
 
         @keyframes subir {
-            to {
-                transform: translateY(-110vh) rotate(360deg);
-            }
+            to { transform: translateY(-110vh) rotate(360deg); }
         }
     </style>
 </head>
@@ -95,10 +103,13 @@
             "Gosto tanto de você que posso enlouquecer."
         </div>
 
-        <a <a href="https://wa.me/5551993981826?text=Sim!%20Sim!%20Sim!%20❤️✨" class="btn-whatsapp">
-Diz que sim por aqui também! ✨
-        
+        <a href="https://wa.me/5551993981826?text=Sim!%20Sim!%20Sim!%20❤️✨" class="btn-whatsapp">
+            Diz que sim por aqui também! ✨
         </a>
+
+        <div class="frase-reflexao">
+            "Eu quero ser melhor que antes, deixe-me lidar com isso agora."
+        </div>
     </div>
 
     <script>
@@ -108,21 +119,12 @@ Diz que sim por aqui também! ✨
             heart.innerHTML = '❤️';
             heart.style.left = Math.random() * 100 + "vw";
             heart.style.fontSize = Math.random() * 20 + 10 + "px";
-            
-            // Velocidade aleatória entre 3 e 6 segundos
             const duracao = Math.random() * 3 + 3;
             heart.style.animationDuration = duracao + "s";
             heart.style.opacity = Math.random();
-
             document.body.appendChild(heart);
-
-            // Remove o coração depois que a animação acaba
-            setTimeout(() => {
-                heart.remove();
-            }, duracao * 1000);
+            setTimeout(() => { heart.remove(); }, duracao * 1000);
         }
-
-        // Cria corações a cada 400 milissegundos
         setInterval(createHeart, 400);
     </script>
 
