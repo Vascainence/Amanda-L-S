@@ -17,27 +17,39 @@
             align-items: center;
             min-height: 100vh;
             text-align: center;
+            overflow: hidden;
+        }
+
+        .container {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         h1 {
             color: #ff0080;
-            font-size: 45px;
+            font-size: clamp(40px, 8vw, 80px);
             margin-bottom: 20px;
         }
 
         /* Estilo do GIF */
-        .gif-img {
-            width: 250px;
-            max-width: 80%;
-            border-radius: 15px;
-            border: 3px solid #ff0080;
+        .gif-container {
+            width: 280px;
+            max-width: 85%;
             margin-bottom: 20px;
-            display: block; /* Garante que ele ocupe espaço */
         }
 
-        /* Estilo do Coração de Emojis */
-        .coracao-grande {
-            font-size: 70px;
+        .gif-container img {
+            width: 100%;
+            border-radius: 15px;
+            border: 3px solid #ff0080;
+            box-shadow: 0 0 15px rgba(255, 0, 128, 0.4);
+        }
+
+        /* Coração de Emojis que já existia */
+        .coracao-pulsante {
+            font-size: 60px;
             margin-top: 10px;
             animation: bater 0.8s infinite alternate;
         }
@@ -46,17 +58,26 @@
             from { transform: scale(1); }
             to { transform: scale(1.2); }
         }
+
+        p {
+            font-size: clamp(24px, 5vw, 35px);
+            margin-top: 15px;
+        }
     </style>
 </head>
 <body>
 
-    <h1>Sabia que diria sim! ❤️</h1>
-    
-    <img src="amor.gif" class="gif-img" alt="GIF fofo">
+    <div class="container">
+        <h1>Sabia que diria sim! ❤️</h1>
+        
+        <div class="gif-container">
+            <img src="img/amor.gif" alt="Nosso GIF">
+        </div>
 
-    <div class="coracao-grande">💖</div>
-    
-    <p style="font-size: 28px;">Fico muito feliz! 😊</p>
+        <div class="coracao-pulsante">💖</div>
+        
+        <p>Fico muito feliz por podermos conversar! 😊</p>
+    </div>
 
 </body>
 </html>
