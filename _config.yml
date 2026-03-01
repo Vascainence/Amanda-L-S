@@ -1,0 +1,7 @@
+markdown: kramdown
+theme: jekyll-theme-minimal
+title: Pedido de Namoro
+description: Um site interativo e divertido
+
+plugins:
+  - jekyll-remote-theme
