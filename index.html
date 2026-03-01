@@ -107,6 +107,55 @@
     });
 
     window.onload = typeWriter;
-  </script>
-</body>
+  </script><script>
+    const h1 = document.querySelector('h1');
+    const botoesDiv = document.getElementById('container-botoes');
+    const simButton = document.getElementById('sim');
+    const naoButton = document.getElementById('nao');
+    const musica = document.getElementById('musica');
+
+    const texto = "AINDA PODEMOS CONVERSAR?";
+    let index = 0;
+
+    // Efeito de digitação
+    function typeWriter() {
+      if (index < texto.length) {
+        h1.innerHTML += texto.charAt(index);
+        index++;
+        setTimeout(typeWriter, 120);
+      } else {
+        botoesDiv.style.opacity = '1';
+      }
+    }
+
+    // Botão "Não" foge
+    naoButton.addEventListener('mouseover', function() {
+      const maxX = window.innerWidth - this.offsetWidth;
+      const maxY = window.innerHeight - this.offsetHeight;
+      this.style.position = 'absolute';
+      this.style.left = Math.random() * maxX + 'px';
+      this.style.top = Math.random() * maxY + 'px';
+    });
+
+    // Botão "Sim" toca música e depois muda de página
+    simButton.addEventListener('click', () => {
+      // Inicia a música
+      musica.play();
+
+      // Deixa o botão rosa mais "aceso" para dar feedback
+      simButton.style.background = "#ff66b3";
+      simButton.innerText = "❤️";
+
+      // Espera 2 segundos (2000ms) para a pessoa ouvir o início e então muda de página
+      setTimeout(() => {
+        window.location.href = 'amanda-l.html';
+      }, 2000); 
+    });
+
+    window.onload = typeWriter;
+</script>
+</body><audio id="musica">
+  <source src="musica.mp3" type="audio/mpeg">
+</audio>
 </html>
+
