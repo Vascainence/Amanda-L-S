@@ -1,51 +1,4 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Um Coração para Você</title>
-    <meta name="language" content="pt-BR">
-    <meta name="title" content="Um Coração para Você">
-    <meta name="description" content="Uma pequena animação de coração para alguém especial.">
-    <link rel="icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/sun0225SUN/photos/img/20210715233345.png">
-    <link rel="stylesheet" href="css/love.css">
-</head>
-
-<body>
-    <div id="mute-button">&#128266;</div>
-
-
-
-    <div id="petal-container"></div>
-
-    <audio id="audios" loop preload="auto">
-        <source src="MP3/sombr - undressed.mp3" />
-    </audio>
-
-    <div class="container" onselectstart="return false;" unselectable="on" style="-moz-user-select:none;">
-
-        <div class="body_left">
-            <img data-src="images/biubiubiu.gif" alt="" ondragstart='return false;'>
-        </div>
-
-        <div class="body_center love">
-            <div class="block">
-                <div class="div1"></div>
-                <div class="div2"></div>
-                <div class="div3"></div>
-                <div class="div4"></div>
-            </div>
-        </div>
-    </div>
-
-
-
-    <script type="text/javascript" src="js/love.js"></script>
-
-</body>
-
-
-</html><!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -62,9 +15,9 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
+            height: 100vh;
             text-align: center;
-            overflow-x: hidden;
+            overflow: hidden;
         }
 
         .container {
@@ -74,46 +27,30 @@
 
         h1 {
             color: #ff0080;
-            font-size: 8vw;
-            margin-bottom: 20px;
+            font-size: clamp(45px, 10vw, 90px);
+            margin-bottom: 10px;
         }
 
-        /* Estilo do GIF (Segunda Imagem) */
-        .gif-container img {
-            width: 250px;
-            max-width: 80%;
-            border-radius: 15px;
-            box-shadow: 0 0 20px rgba(255, 0, 128, 0.5);
-            margin-bottom: 20px;
-        }
-
-        /* Estilo do Coração (Imagem que já existia antes) */
-        .coracao-pulsante {
-            font-size: 60px;
-            color: #ff0080;
+        .coracao-grande {
+            font-size: 100px;
+            margin: 20px 0;
             animation: bater 0.8s infinite alternate;
+            display: inline-block;
+        }
+
+        p {
+            font-size: clamp(28px, 6vw, 45px);
             margin-top: 10px;
-            opacity: 0; /* Começa invisível */
-            animation: bater 0.8s infinite alternate, aparecer 2s forwards 1s; 
-            /* 'aparecer' tem um atraso de 1s para vir depois do GIF */
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes aparecer {
-            to { opacity: 1; }
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes bater {
             from { transform: scale(1); }
-            to { transform: scale(1.2); }
-        }
-
-        @media (min-width: 1200px) {
-            h1 { font-size: 70px; }
+            to { transform: scale(1.25); }
         }
     </style>
 </head>
@@ -122,13 +59,9 @@
     <div class="container">
         <h1>Sabia que diria sim! ❤️</h1>
         
-        <div class="gif-container">
-            <img src="amor.gif" alt="GIF fofo">
-        </div>
-
-        <div class="coracao-pulsante">💖</div>
+        <div class="coracao-grande">💖</div>
         
-        <p style="font-size: 25px; margin-top: 20px;">Fico muito feliz por podermos conversar! 😊</p>
+        <p>Fico muito feliz por podermos conversar! 😊</p>
     </div>
 
 </body>
